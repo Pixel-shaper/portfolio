@@ -468,7 +468,11 @@
             transform: translate(-50%, 0);
         }
 
-    </style>
+    
+#contents .card {
+    cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -501,31 +505,31 @@
                 <p>Explore the complete portfolio archive by section.</p>
             </div>
             <div class="content-grid">
-                <div class="card" onclick="switchPage('covers')">
+                <div class="card" onclick="goToSection('covers')">
                     <div class="card-img"><img src="assets/contents/COVERS.jpg" alt="Covers"></div>
                     <div class="card-info"><h3>Covers</h3><p>Editorial & book cover designs</p></div>
                 </div>
-                <div class="card" onclick="switchPage('layouts')">
+                <div class="card" onclick="goToSection('layouts')">
                     <div class="card-img"><img src="assets/contents/LAYOUTS.jpg" alt="Layouts"></div>
                     <div class="card-info"><h3>Layouts</h3><p>Page layouts & spreads</p></div>
                 </div>
-                <div class="card" onclick="switchPage('infographics')">
+                <div class="card" onclick="goToSection('infographics')">
                     <div class="card-img"><img src="assets/contents/INFOGRAPHICS.jpg" alt="Infographics"></div>
                     <div class="card-info"><h3>Infographics</h3><p>Data visualization & diagrams</p></div>
                 </div>
-                <div class="card" onclick="switchPage('magazines')">
+                <div class="card" onclick="goToSection('magazines')">
                     <div class="card-img"><img src="assets/contents/MAGAZINES.jpg" alt="Magazines"></div>
                     <div class="card-info"><h3>Full Magazines</h3><p>Multi-page publication spreads</p></div>
                 </div>
-                <div class="card" onclick="switchPage('supplements')">
+                <div class="card" onclick="goToSection('supplements')">
                     <div class="card-img"><img src="assets/contents/SUPPLEMENTS.jpg" alt="Supplements"></div>
                     <div class="card-info"><h3>Supplements</h3><p>Editorial and advertorial pages</p></div>
                 </div>
-                <div class="card" onclick="switchPage('marketing')">
+                <div class="card" onclick="goToSection('marketing')">
                     <div class="card-img"><img src="assets/contents/MARKETING.jpg" alt="Marketing"></div>
                     <div class="card-info"><h3>Marketing Material</h3><p>Lookbooks & brochures</p></div>
                 </div>
-                <div class="card" onclick="switchPage('logos')">
+                <div class="card" onclick="goToSection('logos')">
                     <div class="card-img"><img src="assets/contents/LOGOS.jpg" alt="Logos"></div>
                     <div class="card-info"><h3>Logos</h3><p>Brand identity & monograms</p></div>
                 </div>
@@ -893,7 +897,34 @@
     </div>
 
     <script>
-        function switchPage(pageId) {
+        function goToSection(sectionId) {
+    // Robust navigation used by the Contents page.
+    document.querySelectorAll('.portfolio-page').forEach(function(page) {
+        page.classList.remove('active');
+    });
+
+    var targetPage = document.getElementById(sectionId);
+
+    if (!targetPage) {
+        console.warn('Portfolio section not found:', sectionId);
+        return;
+    }
+
+    targetPage.classList.add('active');
+
+    document.querySelectorAll('.sub-nav button').forEach(function(button) {
+        button.classList.remove('active');
+    });
+
+    var navButton = document.getElementById('btn-' + sectionId);
+    if (navButton) {
+        navButton.classList.add('active');
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+}
+
+function switchPage(pageId) {
             const pages = document.querySelectorAll('.portfolio-page');
             pages.forEach(page => page.classList.remove('active'));
 
@@ -2023,6 +2054,28 @@
                 }
             });
         }
-    </script>
+    
+// Contents-page click fallback.
+// The inline onclick handlers remain, but this delegated handler provides
+// a second reliable path for the seven Contents cards.
+document.addEventListener('DOMContentLoaded', function () {
+    var contentsPage = document.getElementById('contents');
+    if (!contentsPage) return;
+
+    contentsPage.addEventListener('click', function (event) {
+        var card = event.target.closest('.card');
+        if (!card || !contentsPage.contains(card)) return;
+
+        var handler = card.getAttribute('onclick') || '';
+        var match = handler.match(/goToSection\(['"]([^'"]+)['"]\)/);
+
+        if (match) {
+            event.preventDefault();
+            event.stopPropagation();
+            goToSection(match[1]);
+        }
+    });
+});
+</script>
 </body>
 </html>
