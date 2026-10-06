@@ -801,13 +801,11 @@
 
   </div>
 
- <!-- Image Viewer / Gallery -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <!-- These arrows are ONLY shown for DPS cards that have an external gallery. -->
-        <button id="gallery-prev" class="gallery-arrow gallery-prev" onclick="changeGalleryImage(-1); event.stopPropagation();" aria-label="Previous DPS page">&#10094;</button>
-        <button id="gallery-next" class="gallery-arrow gallery-next" onclick="changeGalleryImage(1); event.stopPropagation();" aria-label="Next DPS page">&#10095;</button>
+ <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button id="gallery-prev" class="gallery-arrow gallery-prev" onclick="changeGalleryImage(-1); event.stopPropagation();" aria-label="Previous DPS page">&#10094;</button>
+    <button id="gallery-next" class="gallery-arrow gallery-next" onclick="changeGalleryImage(1); event.stopPropagation();" aria-label="Next DPS page">&#10095;</button>
 
-       <div class="lightbox-content" onclick="event.stopPropagation()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
       <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
       <img id="lightbox-img" src="" alt="Portfolio item">
       <div id="lightbox-caption" class="lightbox-caption"></div>
