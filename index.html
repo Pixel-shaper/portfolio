@@ -1,533 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PORTFOLIO: MARI V D BERG</title>
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --surface-color: #ffffff;
-      --text-primary: #111111;
-      --text-secondary: #666666;
-      --border-color: #e5e5e5;
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO: MARI V D BERG</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --surface-color: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #666666;
+            --border-color: #e5e5e5;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg-color);
-      color: var(--text-primary);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
 
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #000000;
-      border-bottom: 1px solid #222222;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 4%;
-      z-index: 1000;
-      gap: 1rem;
-    }
+        /* Top Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000000;
+            border-bottom: 1px solid #222222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 4%;
+            z-index: 1000;
+            gap: 1rem;
+        }
 
-    .logo {
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      font-size: 1.1rem;
-      cursor: pointer;
-      color: #ffffff;
-      white-space: nowrap;
-    }
+        .logo {
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: #ffffff;
+            white-space: nowrap;
+        }
 
-    .sub-nav {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background: #111111;
-      border-bottom: 1px solid #222222;
-      display: flex;
-      gap: 0.5rem;
-      padding: 0.6rem 4%;
-      overflow-x: auto;
-      z-index: 999;
-      scrollbar-width: none;
-    }
+        /* Main Section Navigation Bar */
+        .sub-nav {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #111111;
+            border-bottom: 1px solid #222222;
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.6rem 4%;
+            overflow-x: auto;
+            z-index: 999;
+            scrollbar-width: none;
+        }
 
-    .sub-nav::-webkit-scrollbar,
-    .layout-sub-nav::-webkit-scrollbar {
-      display: none;
-    }
+        .sub-nav::-webkit-scrollbar {
+            display: none;
+        }
 
-    .sub-nav button {
-      background: transparent;
-      border: 1px solid #333333;
-      color: #aaaaaa;
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: var(--transition);
-      font-family: inherit;
-    }
+        .sub-nav button {
+            background: transparent;
+            border: 1px solid #333333;
+            color: #aaaaaa;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            font-family: inherit;
+        }
 
-    .sub-nav button:hover,
-    .sub-nav button.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
+        .sub-nav button:hover, .sub-nav button.active {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
 
-    .layout-sub-nav {
-      display: flex;
-      gap: 0.5rem;
-      background: #000000;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-top: 1rem;
-      scrollbar-width: none;
-    }
+        /* Sub-section Navigation buttons (Black background with white text) */
+        .layout-sub-nav {
+            display: flex;
+            gap: 0.5rem;
+            background: #000000;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+            scrollbar-width: none;
+        }
 
-    .sub-nav-btn {
-      background: transparent;
-      border: 1px solid #333333;
-      color: #ffffff;
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: var(--transition);
-      font-family: inherit;
-    }
+        .layout-sub-nav::-webkit-scrollbar {
+            display: none;
+        }
 
-    .sub-nav-btn:hover,
-    .sub-nav-btn.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
+        .sub-nav-btn {
+            background: transparent;
+            border: 1px solid #333333;
+            color: #ffffff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            font-family: inherit;
+        }
 
-    .search-container {
-      position: relative;
-    }
+        .sub-nav-btn:hover, .sub-nav-btn.active {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
 
-    .search-input {
-      padding: 0.4rem 0.9rem 0.4rem 2rem;
-      border-radius: 20px;
-      border: 1px solid #333333;
-      background: #1a1a1a;
-      color: #ffffff;
-      font-size: 0.8rem;
-      outline: none;
-      transition: var(--transition);
-      width: 150px;
-    }
+        /* Search Box in Top Nav */
+        .search-container {
+            position: relative;
+        }
 
-    .search-input::placeholder {
-      color: #888888;
-    }
+        .search-input {
+            padding: 0.4rem 0.9rem 0.4rem 2rem;
+            border-radius: 20px;
+            border: 1px solid #333333;
+            background: #1a1a1a;
+            color: #ffffff;
+            font-size: 0.8rem;
+            outline: none;
+            transition: var(--transition);
+            width: 150px;
+        }
 
-    .search-input:focus {
-      width: 210px;
-      border-color: #ffffff;
-    }
+        .search-input::placeholder {
+            color: #888888;
+        }
 
-    .search-container::before {
-      content: "🔍";
-      position: absolute;
-      left: 0.7rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.7rem;
-      opacity: 0.7;
-    }
+        .search-input:focus {
+            width: 210px;
+            border-color: #ffffff;
+        }
 
-    .page-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
+        .search-container::before {
+            content: "🔍";
+            position: absolute;
+            left: 0.7rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
 
-    .portfolio-page {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      padding: 9.5rem 6% 4rem 6%;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(15px);
-      transition: var(--transition);
-      overflow-y: auto;
-      background-color: #ffffff;
-    }
+        /* Portfolio Pages Container */
+        .page-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    .portfolio-page.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+        .portfolio-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 9.5rem 6% 4rem 6%;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            overflow-y: auto;
+            background-color: #ffffff;
+        }
 
-    .layout-sub-page {
-      display: none;
-      margin-top: 1.5rem;
-    }
+        .portfolio-page.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-    .layout-sub-page.active {
-      display: block;
-    }
+        /* Nested Layout Section Container */
+        .layout-sub-page {
+            display: none;
+            margin-top: 1.5rem;
+        }
 
-    .page-header {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 1.2rem;
-    }
+        .layout-sub-page.active {
+            display: block;
+        }
 
-    .page-header h1 {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 0.4rem;
-      color: var(--text-primary);
-    }
+        /* Page Header */
+        .page-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.2rem;
+        }
 
-    .page-header p {
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
+        .page-header h1 {
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
 
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.8rem;
-      padding-bottom: 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
 
-    .card {
-      background: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: var(--transition);
-      cursor: pointer;
-    }
+        /* Grid Layouts for Content */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.8rem;
+            padding-bottom: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-    .card.dps {
-      grid-column: span 2;
-    }
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
 
-    @media (max-width: 900px) {
-      .card.dps {
-        grid-column: span 1;
-      }
-    }
+        .card.dps {
+            grid-column: span 2;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-      border-color: var(--text-primary);
-    }
+        @media (max-width: 900px) {
+            .card.dps {
+                grid-column: span 1;
+            }
+        }
 
-    .card-img {
-      width: 100%;
-      height: 380px;
-      background: #f1f1f1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+            border-color: var(--text-primary);
+        }
 
-    .card.dps .card-img {
-      width: 100%;
-      aspect-ratio: 3306 / 2183;
-      height: auto;
-    }
+        .card-img {
+            width: 100%;
+            height: 380px;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .card.dps.tall .card-img {
-      width: 100%;
-      aspect-ratio: 6612 / 4366;
-      height: auto;
-    }
+        .card.dps .card-img {
+            width: 100%;
+            aspect-ratio: 3306 / 2183;
+            height: auto;
+        }
 
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: var(--transition);
-    }
+        .card.dps.tall .card-img {
+            width: 100%;
+            aspect-ratio: 6612 / 4366;
+            height: auto;
+        }
 
-    .card:hover .card-img img {
-      transform: scale(1.03);
-    }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            transition: var(--transition);
+        }
 
-    .card-info {
-      padding: 1.2rem;
-      background: #ffffff;
-    }
+        .card:hover .card-img img {
+            transform: scale(1.03);
+        }
 
-    .card-info h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      letter-spacing: -0.01em;
-      color: var(--text-primary);
-    }
+        .card-info {
+            padding: 1.2rem;
+            background: #ffffff;
+        }
 
-    .card-info p {
-      color: var(--text-secondary);
-      font-size: 0.8rem;
-    }
+        .card-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
 
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      padding: 3rem;
-    }
+        .card-info p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
 
-    .lightbox.active {
-      opacity: 1;
-      visibility: visible;
-    }
+        /* Lightbox Modal */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 3rem;
+        }
 
-    .lightbox-content {
-      max-width: 90vw;
-      max-height: 85vh;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-    .lightbox-content img {
-      max-width: 100%;
-      max-height: 75vh;
-      object-fit: contain;
-      border-radius: 6px;
-    }
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .lightbox-caption {
-      color: #ffffff;
-      margin-top: 1rem;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      text-align: center;
-    }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 6px;
+        }
 
-    .gallery-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 2100;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.45);
-      background: rgba(0,0,0,0.55);
-      color: #ffffff;
-      font-size: 2rem;
-      line-height: 1;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
+        .lightbox-caption {
+            color: #ffffff;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-align: center;
+        }
 
-    .gallery-arrow:hover {
-      background: rgba(255,255,255,0.18);
-      border-color: #ffffff;
-      transform: translateY(-50%) scale(1.05);
-    }
+        /* Multi-image gallery controls
+           Used everywhere EXCEPT Covers and Infographics. */
+        .gallery-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2100;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.45);
+            background: rgba(0,0,0,0.55);
+            color: #ffffff;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .gallery-prev { left: 2rem; }
-    .gallery-next { right: 2rem; }
+        .gallery-arrow:hover {
+            background: rgba(255,255,255,0.18);
+            border-color: #ffffff;
+            transform: translateY(-50%) scale(1.05);
+        }
 
-    .gallery-counter {
-      display: none;
-      color: #ffffff;
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      opacity: 0.8;
-      text-align: center;
-    }
+        .gallery-prev { left: 2rem; }
 
-    .gallery-mode .gallery-arrow {
-      display: block;
-    }
+        .gallery-next { right: 2rem; }
 
-    .gallery-mode .gallery-counter {
-      display: block;
-    }
+        .gallery-counter {
+            display: none;
+            color: #ffffff;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-align: center;
+        }
 
-    .lightbox.gallery-mode .gallery-arrow { display: flex; }
-    .lightbox:not(.gallery-mode) .gallery-counter { display: none; }
-    .lightbox.gallery-mode .gallery-counter { display: block; }
+        .gallery-mode .gallery-arrow {
+            display: block;
+        }
 
-    .lightbox-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      color: #ffffff;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
+        .gallery-mode .gallery-counter {
+            display: block;
+        }
 
-    .portfolio-page:not(#covers):not(#infographics) .card-img::after {
-      content: "CLICK TO VIEW";
-      position: absolute;
-      left: 50%;
-      bottom: 1rem;
-      transform: translate(-50%, 8px);
-      background: rgba(0,0,0,0.72);
-      color: #ffffff;
-      padding: 0.35rem 0.65rem;
-      border-radius: 20px;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      opacity: 0;
-      transition: all 0.25s ease;
-      pointer-events: none;
-    }
+        /* External DPS gallery arrows/counter are hidden until a DPS gallery is open. */
+        .lightbox.gallery-mode .gallery-arrow { display: flex; }
+        .lightbox:not(.gallery-mode) .gallery-counter { display: none; }
+        .lightbox.gallery-mode .gallery-counter { display: block; }
 
-    .portfolio-page:not(#covers):not(#infographics) .card:hover .card-img::after {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
+        @media (max-width: 700px) {
+            .gallery-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 1.5rem;
+            }
 
-    @media (max-width: 700px) {
-      .gallery-arrow {
-        width: 44px;
-        height: 44px;
-        font-size: 1.5rem;
-      }
+            .gallery-prev {
+                left: 0.6rem;
+            }
 
-      .gallery-prev {
-        left: 0.6rem;
-      }
+            .gallery-next {
+                right: 0.6rem;
+            }
+        }
 
-      .gallery-next {
-        right: 0.6rem;
-      }
-    }
-  </style>
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #ffffff;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Subtle indication that non-cover/non-infographic cards can be browsed */
+        .portfolio-page:not(#covers):not(#infographics) .card-img::after {
+            content: "CLICK TO VIEW";
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
+            transform: translate(-50%, 8px);
+            background: rgba(0,0,0,0.72);
+            color: #ffffff;
+            padding: 0.35rem 0.65rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            opacity: 0;
+            transition: all 0.25s ease;
+            pointer-events: none;
+        }
+
+        .portfolio-page:not(#covers):not(#infographics) .card:hover .card-img::after {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+    </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo" onclick="switchPage('contents')">MARI V D BERG</div>
-    <div class="search-container">
-      <input type="text" class="search-input" id="portfolioSearch" placeholder="Search projects..." onkeyup="filterPortfolio()">
+    <!-- Top Navigation Bar -->
+    <nav>
+        <div class="logo" onclick="switchPage('contents')">MARI V D BERG</div>
+        <div class="search-container">
+            <input type="text" class="search-input" id="portfolioSearch" placeholder="Search projects..." onkeyup="filterPortfolio()">
+        </div>
+    </nav>
+
+    <!-- Main Section Navigation Bar -->
+    <div class="sub-nav">
+        <button onclick="switchPage('contents')" id="btn-contents" class="active">Contents</button>
+        <button onclick="switchPage('covers')" id="btn-covers">Covers</button>
+        <button onclick="switchPage('layouts')" id="btn-layouts">Layouts</button>
+        <button onclick="switchPage('infographics')" id="btn-infographics">Infographics</button>
+        <button onclick="switchPage('magazines')" id="btn-magazines">Full Magazines</button>
+        <button onclick="switchPage('supplements')" id="btn-supplements">Supplements</button>
+        <button onclick="switchPage('marketing')" id="btn-marketing">Marketing Material</button>
+        <button onclick="switchPage('logos')" id="btn-logos">Logos</button>
     </div>
-  </nav>
 
-  <div class="sub-nav">
-    <button onclick="switchPage('contents')" id="btn-contents" class="active">Contents</button>
-    <button onclick="switchPage('covers')" id="btn-covers">Covers</button>
-    <button onclick="switchPage('layouts')" id="btn-layouts">Layouts</button>
-    <button onclick="switchPage('infographics')" id="btn-infographics">Infographics</button>
-    <button onclick="switchPage('magazines')" id="btn-magazines">Full Magazines</button>
-    <button onclick="switchPage('supplements')" id="btn-supplements">Supplements</button>
-    <button onclick="switchPage('marketing')" id="btn-marketing">Marketing Material</button>
-    <button onclick="switchPage('logos')" id="btn-logos">Logos</button>
-  </div>
+    <div class="page-container">
 
-  <div class="page-container">
+        <!-- CONTENTS PAGE -->
+        <section id="contents" class="portfolio-page active">
+            <div class="page-header">
+                <h1>Contents</h1>
+                <p>Explore the complete portfolio archive by section.</p>
+            </div>
+            <div class="content-grid">
+                <div class="card" onclick="switchPage('covers')">
+                    <div class="card-img"><img src="assets/contents/COVERS.jpg" alt="Covers"></div>
+                    <div class="card-info"><h3>Covers</h3><p>Editorial & book cover designs</p></div>
+                </div>
+                <div class="card" onclick="switchPage('layouts')">
+                    <div class="card-img"><img src="assets/contents/LAYOUTS.jpg" alt="Layouts"></div>
+                    <div class="card-info"><h3>Layouts</h3><p>Page layouts & spreads</p></div>
+                </div>
+                <div class="card" onclick="switchPage('infographics')">
+                    <div class="card-img"><img src="assets/contents/INFOGRAPHICS.jpg" alt="Infographics"></div>
+                    <div class="card-info"><h3>Infographics</h3><p>Data visualization & diagrams</p></div>
+                </div>
+                <div class="card" onclick="switchPage('magazines')">
+                    <div class="card-img"><img src="assets/contents/MAGAZINES.jpg" alt="Magazines"></div>
+                    <div class="card-info"><h3>Full Magazines</h3><p>Multi-page publication spreads</p></div>
+                </div>
+                <div class="card" onclick="switchPage('supplements')">
+                    <div class="card-img"><img src="assets/contents/SUPPLEMENTS.jpg" alt="Supplements"></div>
+                    <div class="card-info"><h3>Supplements</h3><p>Editorial and advertorial pages</p></div>
+                </div>
+                <div class="card" onclick="switchPage('marketing')">
+                    <div class="card-img"><img src="assets/contents/MARKETING.jpg" alt="Marketing"></div>
+                    <div class="card-info"><h3>Marketing Material</h3><p>Lookbooks & brochures</p></div>
+                </div>
+                <div class="card" onclick="switchPage('logos')">
+                    <div class="card-img"><img src="assets/contents/LOGOS.jpg" alt="Logos"></div>
+                    <div class="card-info"><h3>Logos</h3><p>Brand identity & monograms</p></div>
+                </div>
+            </div>
+        </section>
 
-    <section id="contents" class="portfolio-page active">
-      <div class="page-header">
-        <h1>Contents</h1>
-        <p>Explore the complete portfolio archive by section.</p>
-      </div>
-      <div class="content-grid">
-        <div class="card" onclick="switchPage('covers')">
-          <div class="card-img"><img src="assets/contents/COVERS.jpg" alt="Covers"></div>
-          <div class="card-info"><h3>Covers</h3><p>Editorial & book cover designs</p></div>
-        </div>
-        <div class="card" onclick="switchPage('layouts')">
-          <div class="card-img"><img src="assets/contents/LAYOUTS.jpg" alt="Layouts"></div>
-          <div class="card-info"><h3>Layouts</h3><p>Page layouts & spreads</p></div>
-        </div>
-        <div class="card" onclick="switchPage('infographics')">
-          <div class="card-img"><img src="assets/contents/INFOGRAPHICS.jpg" alt="Infographics"></div>
-          <div class="card-info"><h3>Infographics</h3><p>Data visualization & diagrams</p></div>
-        </div>
-        <div class="card" onclick="switchPage('magazines')">
-          <div class="card-img"><img src="assets/contents/MAGAZINES.jpg" alt="Magazines"></div>
-          <div class="card-info"><h3>Full Magazines</h3><p>Multi-page publication spreads</p></div>
-        </div>
-        <div class="card" onclick="switchPage('supplements')">
-          <div class="card-img"><img src="assets/contents/SUPPLEMENTS.jpg" alt="Supplements"></div>
-          <div class="card-info"><h3>Supplements</h3><p>Editorial and advertorial pages</p></div>
-        </div>
-        <div class="card" onclick="switchPage('marketing')">
-          <div class="card-img"><img src="assets/contents/MARKETING.jpg" alt="Marketing"></div>
-          <div class="card-info"><h3>Marketing Material</h3><p>Lookbooks & brochures</p></div>
-        </div>
-        <div class="card" onclick="switchPage('logos')">
-          <div class="card-img"><img src="assets/contents/LOGOS.jpg" alt="Logos"></div>
-          <div class="card-info"><h3>Logos</h3><p>Brand identity & monograms</p></div>
-        </div>
-      </div>
-    </section>
+        <!-- COVERS PAGE (Containing Black Sub-section Navigation & 13+ Assets per Category) -->
+        <section id="covers" class="portfolio-page">
+            <div class="page-header">
+                <h1>Covers</h1>
+                <p>Curated editorial and magazine cover designs.</p>
+                
+                <!-- Sub-section Navigation -->
+                <div class="layout-sub-nav">
+                    <button class="sub-nav-btn active" onclick="switchCoverSub('cover-drum', event)">Drum</button>
+                    <button class="sub-nav-btn" onclick="switchCoverSub('cover-you', event)">YOU</button>
+                    <button class="sub-nav-btn" onclick="switchCoverSub('cover-huisgenoot', event)">Huisgenoot</button>
+                </div>
+            </div>
 
-    <section id="covers" class="portfolio-page">
-      <div class="page-header">
-        <h1>Covers</h1>
-        <p>Curated editorial and magazine cover designs.</p>
-
-        <div class="layout-sub-nav">
-          <button class="sub-nav-btn active" onclick="switchCoverSub('cover-drum', event)">Drum</button>
-          <button class="sub-nav-btn" onclick="switchCoverSub('cover-you', event)">YOU</button>
-          <button class="sub-nav-btn" onclick="switchCoverSub('cover-huisgenoot', event)">Huisgenoot</button>
-        </div>
-      </div>
-
-      <div id="cover-drum" class="layout-sub-page active">
-        <div class="content-grid">
-           <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/DRUM5.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
+            <!-- Sub-section: Drum (13 Assets) -->
+            <div id="cover-drum" class="layout-sub-page active">
+               <div class="content-grid">
+                <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/DRUM5.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/DRUM6.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/DRUM2.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/DRUM7.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
@@ -538,9 +560,10 @@
             </div>
             </div>
 
-      <div id="cover-you" class="layout-sub-page">
-        <div class="content-grid">
-             <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/YOU1.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
+            <!-- Sub-section: YOU (13 Assets) -->
+            <div id="cover-you" class="layout-sub-page">
+                <div class="content-grid">
+               <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/YOU1.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/YOU2.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/YOU3.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/YOU5.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
@@ -559,10 +582,11 @@
                 <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/YOU33.jpg" alt="Cover"></div><div class="card-info"><h3>Cover</h3><p></p></div></div>
             </div>
             </div>
-
-      <div id="cover-huisgenoot" class="layout-sub-page">
-        <div class="content-grid">
-            <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/HG1.jpg" alt="Cover"></div><div class="card-info"><h3>Huisgenoot Cover 01</h3><p>Editorial Cover</p></div></div>
+            
+            <!-- Sub-section: Huisgenoot (13 Assets) -->
+            <div id="cover-huisgenoot" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/HG1.jpg" alt="Cover"></div><div class="card-info"><h3>Huisgenoot Cover 01</h3><p>Editorial Cover</p></div></div>
                     <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/HG2.jpg" alt="Cover"></div><div class="card-info"><h3>Huisgenoot Cover 02</h3><p>Editorial Cover</p></div></div>
                     <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/HG3.jpg" alt="Cover"></div><div class="card-info"><h3>Huisgenoot Cover 03</h3><p>Editorial Cover</p></div></div>
                     <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/HG4.jpg" alt="Cover"></div><div class="card-info"><h3>Huisgenoot Cover 04</h3><p>Editorial Cover</p></div></div>
@@ -592,39 +616,44 @@
                     <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/covers/HG28.jpg" alt="Cover"></div><div class="card-info"><h3>Huisgenoot Cover 28</h3><p>Editorial Cover</p></div></div>
                 </div>
             </div>
-    </section>
+        </section>
 
-    <section id="layouts" class="portfolio-page">
-      <div class="page-header">
-        <h1>Layouts</h1>
-        <p>Editorial spreads and feature categories.</p>
 
-        <div class="layout-sub-nav">
-          <button class="sub-nav-btn active" onclick="switchLayoutSub('layout-news', event)">News</button>
-          <button class="sub-nav-btn" onclick="switchLayoutSub('layout-celebs', event)">Celebs</button>
-          <button class="sub-nav-btn" onclick="switchLayoutSub('layout-sport', event)">Sport</button>
-          <button class="sub-nav-btn" onclick="switchLayoutSub('layout-lifestyle', event)">Lifestyle</button>
-          <button class="sub-nav-btn" onclick="switchLayoutSub('layout-advice', event)">Advice</button>
-          <button class="sub-nav-btn" onclick="switchLayoutSub('layout-entertainment', event)">Entertainment</button>
-        </div>
-      </div>
+        <!-- LAYOUTS PAGE -->
+        <section id="layouts" class="portfolio-page">
+            <div class="page-header">
+                <h1>Layouts</h1>
+                <p>Editorial spreads and feature categories.</p>
+                
+                <!-- Sub-section Navigation -->
+                <div class="layout-sub-nav">
+                    <button class="sub-nav-btn active" onclick="switchLayoutSub('layout-news', event)">News</button>
+                    <button class="sub-nav-btn" onclick="switchLayoutSub('layout-celebs', event)">Celebs</button>
+                    <button class="sub-nav-btn" onclick="switchLayoutSub('layout-sport', event)">Sport</button>
+                    <button class="sub-nav-btn" onclick="switchLayoutSub('layout-lifestyle', event)">Lifestyle</button>
+                    <button class="sub-nav-btn" onclick="switchLayoutSub('layout-advice', event)">Advice</button>
+                    <button class="sub-nav-btn" onclick="switchLayoutSub('layout-entertainment', event)">Entertainment</button>
+                </div>
+            </div>
 
-      <div id="layout-news" class="layout-sub-page active">
-        <div class="content-grid">
-             <div class="card dps" data-dps-gallery="layouts-1" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS1.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-2" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS2.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-3" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS3.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-4" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS4.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-5" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS5.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-6" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS6.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-7" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS7.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout<h3><p></p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-8" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS8.jpg" alt="News"></div><div class="card-info"><h3>News Publication Layout</h3><p></p></div></div>
+            <!-- Sub-section: News -->
+            <div id="layout-news" class="layout-sub-page active">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="layouts-1" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS1.jpg" alt="News"></div><div class="card-info"><h3>Market Shifts & Analytics</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-2" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS2.jpg" alt="News"></div><div class="card-info"><h3>Global Trade Analysis</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-3" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS3.jpg" alt="News"></div><div class="card-info"><h3>Economic Outlook 01</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-4" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS4.jpg" alt="News"></div><div class="card-info"><h3>Economic Outlook 01</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-5" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS5.jpg" alt="News"></div><div class="card-info"><h3>Economic Outlook 01</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-6" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS6.jpg" alt="News"></div><div class="card-info"><h3>Economic Outlook 01</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-7" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS7.jpg" alt="News"></div><div class="card-info"><h3>Economic Outlook 01</h3><p>News Publication Layout</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-8" onclick="openLightbox(this)"><div class="card-img"><img src="assets/news/NEWS8.jpg" alt="News"></div><div class="card-info"><h3>Economic Outlook 01</h3><p>News Publication Layout</p></div></div>
                  </div>
             </div>
 
-      <div id="layout-celebs" class="layout-sub-page">
-        <div class="content-grid">
-              <div class="card dps" data-dps-gallery="layouts-9" onclick="openLightbox(this)"><div class="card-img"><img src="assets/celebs/CELEB1.jpg" alt="Celeb"></div><div class="card-info"><h3>Celebrity Spread</h3><p></p></div></div>
+            <!-- Sub-section: Celebs -->
+            <div id="layout-celebs" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="layouts-9" onclick="openLightbox(this)"><div class="card-img"><img src="assets/celebs/CELEB1.jpg" alt="Celeb"></div><div class="card-info"><h3>Celebrity Spread</h3><p></p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-10" onclick="openLightbox(this)"><div class="card-img"><img src="assets/celebs/CELEB2.jpg" alt="Celeb"></div><div class="card-info"><h3>Celebrity Spread</h3><p></p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-11" onclick="openLightbox(this)"><div class="card-img"><img src="assets/celebs/CELEB3.jpg" alt="Celeb"></div><div class="card-info"><h3>Celebrity Spread</h3><p></p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-12" onclick="openLightbox(this)"><div class="card-img"><img src="assets/celebs/CELEB4.jpg" alt="Celeb"></div><div class="card-info"><h3>Celebrity Spread</h3><p></p></div></div>
@@ -640,9 +669,10 @@
                 </div>
             </div>
 
-      <div id="layout-sport" class="layout-sub-page">
-        <div class="content-grid">
-              <div class="card dps" data-dps-gallery="layouts-22" onclick="openLightbox(this)"><div class="card-img"><img src="assets/sport/SPORT1.jpg" alt="Celeb"></div><div class="card-info"><h3>Soccer</h3><p>Sports Editorial Spread</p></div></div>
+            <!-- Sub-section: Sport -->
+            <div id="layout-sport" class="layout-sub-page">
+               <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="layouts-22" onclick="openLightbox(this)"><div class="card-img"><img src="assets/sport/SPORT1.jpg" alt="Celeb"></div><div class="card-info"><h3>Soccer</h3><p>Sports Editorial Spread</p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-23" onclick="openLightbox(this)"><div class="card-img"><img src="assets/sport/SPORT2.jpg" alt="Celeb"></div><div class="card-info"><h3>Soccer</h3><p>Sports Editorial Spread</p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-24" onclick="openLightbox(this)"><div class="card-img"><img src="assets/sport/SPORT3.jpg" alt="Celeb"></div><div class="card-info"><h3>Rugby</h3><p>Sports Editorial Spread</p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-25" onclick="openLightbox(this)"><div class="card-img"><img src="assets/sport/SPORT4.jpg" alt="Celeb"></div><div class="card-info"><h3>Rugby</h3><p>Sports Editorial Spread</p></div></div>
@@ -658,29 +688,17 @@
                 </div>
             </div>
 
-      <div id="layout-lifestyle" class="layout-sub-page">
-        <div class="content-grid">
-               <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE1.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Food</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE2.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Food</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE3.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Food</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE4.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Decor</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE5.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Decor</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE6.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Decor</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE7.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Fashion</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE8.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Fashion</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE9.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Fashion kids and teens</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE10.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Fashion kids and teens</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE11.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Trends</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE12.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Beauty</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE13.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Beauty</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE14.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Hair</h3><p>Lifestyle</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE15.jpg" alt="Lifestyle"></div><div class="card-info"><h3>General</h3><p>Lifestyle</p></div></div>
+            <!-- Sub-section: Lifestyle -->
+            <div id="layout-lifestyle" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="layouts-35" onclick="openLightbox(this)"><div class="card-img"><img src="assets/lifestyle/LIFE1.jpg" alt="Lifestyle"></div><div class="card-info"><h3>Lifestyle Feature 01</h3><p>Design & Living</p></div></div>
                 </div>
             </div>
 
-      <div id="layout-advice" class="layout-sub-page">
-        <div class="content-grid">
-            <div class="card dps" data-dps-gallery="layouts-36" onclick="openLightbox(this)"><div class="card-img"><img src="assets/advice/ADVICE1.jpg" alt="Advice"></div><div class="card-info"><h3>Health Advice</h3><p>Expert Guidance</p></div></div>
+            <!-- Sub-section: Advice -->
+            <div id="layout-advice" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="layouts-36" onclick="openLightbox(this)"><div class="card-img"><img src="assets/advice/ADVICE1.jpg" alt="Advice"></div><div class="card-info"><h3>Health Advice</h3><p>Expert Guidance</p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-36" onclick="openLightbox(this)"><div class="card-img"><img src="assets/advice/ADVICE2.jpg" alt="Advice"></div><div class="card-info"><h3>Health Advice</h3><p>Expert Guidance</p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-36" onclick="openLightbox(this)"><div class="card-img"><img src="assets/advice/ADVICE3.jpg" alt="Advice"></div><div class="card-info"><h3>Advice</h3><p>Expert Guidance</p></div></div>
                     <div class="card dps" data-dps-gallery="layouts-36" onclick="openLightbox(this)"><div class="card-img"><img src="assets/advice/ADVICE4.jpg" alt="Advice"></div><div class="card-info"><h3>Advice</h3><p>Expert Guidance</p></div></div>
@@ -690,300 +708,875 @@
                 </div>
             </div>
 
-      <div id="layout-entertainment" class="layout-sub-page">
-        <div class="content-grid">
-               <div class="card dps" data-dps-gallery="layouts-37" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT1.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-38" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT2.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-39" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT3.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-40" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT4.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-41" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT5.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-42" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT6.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-43" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT7.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-44" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT8.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
-                    <div class="card dps" data-dps-gallery="layouts-45" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT9.jpg" alt="ENT"></div><div class="card-info"><h3></h3><p>Entertainment Spread</p></div></div>
+            <!-- Sub-section: Entertainment -->
+            <div id="layout-entertainment" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="layouts-37" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT1.jpg" alt="ENT"></div><div class="card-info"><h3>Sound & Vision 01</h3><p>Music Culture Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-38" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT2.jpg" alt="ENT"></div><div class="card-info"><h3>Blockbuster Preview</h3><p>Cinema Feature Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-39" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT3.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-40" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT4.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-41" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT5.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-42" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT6.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-43" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT7.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-44" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT8.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="layouts-45" onclick="openLightbox(this)"><div class="card-img"><img src="assets/entertainment/ENT9.jpg" alt="ENT"></div><div class="card-info"><h3>Festival Highlights</h3><p>Entertainment Spread</p></div></div>
                 </div>
             </div>
-    </section>
+        </section>
 
-    <section id="infographics" class="portfolio-page">
-      <div class="page-header">
-        <h1>Infographics</h1>
-        <p>Data visualization and structural diagrams.</p>
-      </div>
-      <div class="content-grid">
-        <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC25.jpg" alt="Infographic"></div><div class="card-info"><h3>The Andean Condor</h3><p></p></div></div>
+        <!-- INFOGRAPHICS PAGE -->
+        <section id="infographics" class="portfolio-page">
+            <div class="page-header">
+                <h1>Infographics</h1>
+                <p>Data visualization and structural diagrams.</p>
+            </div>
+            <div class="content-grid">
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC25.jpg" alt="Infographic"></div><div class="card-info"><h3>The Andean Condor</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC14.jpg" alt="Infographic"></div><div class="card-info"><h3>The Grand Canyon</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC21.jpg" alt="Infographic"></div><div class="card-info"><h3>The African Wild Dog</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC11.jpg" alt="Infographic"></div><div class="card-info"><h3>The Comodo Dragon</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC12.jpg" alt="Infographic"></div><div class="card-info"><h3>The Herculus Beetle</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC12.jpg" alt="Infographic"></div><div class="card-info"><h3>The Herculus Beetle</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC4.jpg" alt="Infographic"></div><div class="card-info"><h3>The Okavango Delta</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC2.jpg" alt="Infographic"></div><div class="card-info"><h3>Extinction Of The Dinosaurs</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC5.jpg" alt="Infographic"></div><div class="card-info"><h3>The Walrus</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC2.jpg" alt="Infographic"></div><div class="card-info"><h3>Extinction Of The Dinosaurs</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC5.jpg" alt="Infographic"></div><div class="card-info"><h3>The Walrus</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC16.jpg" alt="Infographic"></div><div class="card-info"><h3>The Dugong</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC15.jpg" alt="Infographic"></div><div class="card-info"><h3>The Dumbo Octopus</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC26.jpg" alt="Infographic"></div><div class="card-info"><h3>The Olive Tree</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC26.jpg" alt="Infographic"></div><div class="card-info"><h3>The Olive Tree</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC9.jpg" alt="Infographic"></div><div class="card-info"><h3>Most Poisonous Plants</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC19.jpg" alt="Infographic"></div><div class="card-info"><h3>Municipal Services</h3><p></p></div></div>
-                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC1.jpg" alt="Infographic"></div><div class="card-info"><h3>What is Gravity?</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC1.jpg" alt="Infographic"></div><div class="card-info"><h3>What is Geavity?</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC22.jpg" alt="Infographic"></div><div class="card-info"><h3>From Uranium To Nuclear Energy</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC7.jpg" alt="Infographic"></div><div class="card-info"><h3>Three Gorges Dam</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC8.jpg" alt="Infographic"></div><div class="card-info"><h3>Tallest Buildings In The World</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC24.jpg" alt="Infographic"></div><div class="card-info"><h3>The FNB Soccer Stadium</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC13.jpg" alt="Infographic"></div><div class="card-info"><h3>The Hindenburg</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC18.jpg" alt="Infographic"></div><div class="card-info"><h3>The Berlin Wall</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC10.jpg" alt="Infographic"></div><div class="card-info"><h3>The Lighthouse of Alexandria</h3><p></p></div></div>
-                <div class="card dps.tall" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC6.jpg" alt="Infographic"></div><div class="card-info"><h3>The Tuba</h3><p></p></div></div>
-                <div class="card dps".tall onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC3.jpg" alt="Infographic"></div><div class="card-info"><h3>The Amazing Soda Can</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC18.jpg" alt="Infographic"></div><div class="card-info"><h3>The Berlin Wall</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC10.jpg" alt="Infographic"></div><div class="card-info"><h3>The Lighthouse of Alexandria</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC6.jpg" alt="Infographic"></div><div class="card-info"><h3>The Tuba</h3><p></p></div></div>
+                <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC3.jpg" alt="Infographic"></div><div class="card-info"><h3>The Amazing Soda Can</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC20.jpg" alt="Infographic"></div><div class="card-info"><h3>How Avalanches Are Formed</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC29.jpg" alt="Infographic"></div><div class="card-info"><h3>Make Your Own Puppet On A String</h3><p></p></div></div>
                 <div class="card dps" onclick="openLightbox(this)"><div class="card-img"><img src="assets/infographics/INFOGRAPHIC23.jpg" alt="Infographic"></div><div class="card-info"><h3>Make Your Own String Cup Telephone</h3><p></p></div></div>
             </div>
-    </section>
+        </section>
 
-    <section id="magazines" class="portfolio-page">
-      <div class="page-header">
-        <h1>Full Magazines</h1>
-        <p>Multi-page publication layouts and magazine spreads.</p>
+        <!-- FULL MAGAZINES PAGE (With Black Sub-section Navigation) -->
+        <section id="magazines" class="portfolio-page">
+            <div class="page-header">
+                <h1>Full Magazines</h1>
+                <p>Multi-page publication layouts and magazine spreads.</p>
+                
+                <!-- Black Sub-section Navigation Bar -->
+                <div class="layout-sub-nav">
+                    <button class="sub-nav-btn active" onclick="switchMagazineSub('mag-lifestyle', event)">Lifestyle</button>
+                    <button class="sub-nav-btn" onclick="switchMagazineSub('mag-advice', event)">Advice</button>
+                    <button class="sub-nav-btn" onclick="switchMagazineSub('mag-food', event)">Food</button>
+                    <button class="sub-nav-btn" onclick="switchMagazineSub('mag-kids', event)">Kids and Education</button>
+                    <button class="sub-nav-btn" onclick="switchMagazineSub('mag-other', event)">Other</button>
+                    <button class="sub-nav-btn" onclick="switchMagazineSub('mag-games', event)">Games and Puzzlrs</button>
+                </div>
+            </div>
 
-        <div class="layout-sub-nav">
-          <button class="sub-nav-btn active" onclick="switchMagazineSub('mag-lifestyle', event)">Lifestyle</button>
-          <button class="sub-nav-btn" onclick="switchMagazineSub('mag-advice', event)">Advice</button>
-          <button class="sub-nav-btn" onclick="switchMagazineSub('mag-food', event)">Food</button>
-          <button class="sub-nav-btn" onclick="switchMagazineSub('mag-kids', event)">Kids and Education</button>
-          <button class="sub-nav-btn" onclick="switchMagazineSub('mag-other', event)">Other</button>
-        </div>
-      </div>
+            <!-- Sub-section: Lifestyle -->
+            <div id="mag-lifestyle" class="layout-sub-page active">
+                <div class="content-grid">
+                    <div class="card dps tall" data-dps-gallery="magazines-1" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE1.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle Feature 01</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps tall" data-dps-gallery="magazines-2" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE2.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle Feature 02</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps tall" data-dps-gallery="magazines-3" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE3.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle Feature 02</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps tall" data-dps-gallery="magazines-4" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE4.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle Feature 02</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps tall" data-dps-gallery="magazines-5" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE5.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle Feature 02</h3><p>Publication Spread</p></div></div>
+                </div>
+            </div>
 
-      <div id="mag-lifestyle" class="layout-sub-page active">
-        <div class="content-grid">
-          <div class="card dps tall" data-dps-gallery="magazines-1" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE1.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle 01</h3><p>Magazine spread</p></div></div>
-          <div class="card dps tall" data-dps-gallery="magazines-2" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/LIFESTYLE2.jpg" alt="Lifestyle Magazine"></div><div class="card-info"><h3>Lifestyle 02</h3><p>Magazine spread</p></div></div>
-        </div>
-      </div>
+            <!-- Sub-section: Advice -->
+            <div id="mag-advice" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="magazines-6" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/ADVICE1.jpg" alt="Advice Magazine"></div><div class="card-info"><h3>Advice Feature 01</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="magazines-7" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/ADVICE2.jpg" alt="Advice Magazine"></div><div class="card-info"><h3>Advice Feature 02</h3><p>Publication Spread</p></div></div>
+                </div>
+            </div>
 
-      <div id="mag-advice" class="layout-sub-page">
-        <div class="content-grid">
-          <div class="card dps" data-dps-gallery="magazines-6" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/ADVICE1.jpg" alt="Advice Magazine"></div><div class="card-info"><h3>Advice 01</h3><p>Magazine</p></div></div>
-          <div class="card dps" data-dps-gallery="magazines-7" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/ADVICE2.jpg" alt="Advice Magazine"></div><div class="card-info"><h3>Advice 02</h3><p>Magazine</p></div></div>
-        </div>
-      </div>
-    </section>
+            <!-- Sub-section: Food -->
+            <div id="mag-food" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="magazines-8" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/FOOD1.jpg" alt="Food Magazine"></div><div class="card-info"><h3>Food Feature 01</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="magazines-9" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/FOOD2.jpg" alt="Food Magazine"></div><div class="card-info"><h3>Food Feature 02</h3><p>Publication Spread</p></div></div>
+                </div>
+            </div>
 
-    <section id="supplements" class="portfolio-page">
-      <div class="page-header">
-        <h1>Supplements</h1>
-        <p>Editorial supplements and advertorial features.</p>
-      </div>
-      <div class="content-grid">
-        <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/supplements/SUP1.jpg" alt="Supplement"></div><div class="card-info"><h3>Supplement 01</h3><p>Editorial supplement</p></div></div>
-      </div>
-    </section>
+            <!-- Sub-section: Kids and Education -->
+            <div id="mag-kids" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="magazines-10" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/KIDS1.jpg" alt="Kids and Education Magazine"></div><div class="card-info"><h3>Kids & Education 01</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="magazines-11" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/KIDS2.jpg" alt="Kids and Education Magazine"></div><div class="card-info"><h3>Kids & Education 02</h3><p>Publication Spread</p></div></div>
+                </div>
+            </div>
 
-    <section id="marketing" class="portfolio-page">
-      <div class="page-header">
-        <h1>Marketing Material</h1>
-        <p>Lookbooks, brochures, and marketing collateral.</p>
-      </div>
-      <div class="content-grid">
-        <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/marketing/MKT1.jpg" alt="Marketing"></div><div class="card-info"><h3>Marketing Material 01</h3><p>Brand collateral</p></div></div>
-      </div>
-    </section>
+            <!-- Sub-section: Other -->
+            <div id="mag-other" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="magazines-12" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/OTHER1.jpg" alt="Other"></div><div class="card-info"><h3>Kids & Education 01</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="magazines-13" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/OTHER2.jpg" alt="Other"></div><div class="card-info"><h3>Kids & Education 02</h3><p>Publication Spread</p></div></div>
+                </div>
+            </div>
 
-    <section id="logos" class="portfolio-page">
-      <div class="page-header">
-        <h1>Logos</h1>
-        <p>Brand identity and monogram design collections.</p>
-      </div>
-      <div class="content-grid">
-        <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/logos/LOGO1.jpg" alt="Logo"></div><div class="card-info"><h3>Logo Design 01</h3><p>Brand identity</p></div></div>
-      </div>
-    </section>
+            <!-- Sub-section: Games and Puzzlrs -->
+            <div id="mag-games" class="layout-sub-page">
+                <div class="content-grid">
+                    <div class="card dps" data-dps-gallery="magazines-14" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/GAMES1.jpg" alt="Games and Puzzlrs Magazine"></div><div class="card-info"><h3>Games & Puzzlrs 01</h3><p>Publication Spread</p></div></div>
+                    <div class="card dps" data-dps-gallery="magazines-15" onclick="openLightbox(this)"><div class="card-img"><img src="assets/magazines/GAMES2.jpg" alt="Games and Puzzlrs Magazine"></div><div class="card-info"><h3>Games & Puzzlrs 02</h3><p>Publication Spread</p></div></div>
+                </div>
+            </div>
+        </section>
 
-  </div>
+        <!-- SUPPLEMENTS PAGE -->
+        <section id="supplements" class="portfolio-page">
+            <div class="page-header">
+                <h1>Supplements</h1>
+                <p>Editorial supplements and advertorial features.</p>
+            </div>
+            <div class="content-grid">
+                <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/supplements/SUP1.jpg" alt="Supplement"></div><div class="card-info"><h3>Supplement 01</h3><p>Editorial Insert</p></div></div>
+            </div>
+        </section>
 
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <button id="gallery-prev" class="gallery-arrow gallery-prev" onclick="changeGalleryImage(-1); event.stopPropagation();" aria-label="Previous DPS page">&#10094;</button>
-    <button id="gallery-next" class="gallery-arrow gallery-next" onclick="changeGalleryImage(1); event.stopPropagation();" aria-label="Next DPS page">&#10095;</button>
+        <!-- MARKETING PAGE -->
+        <section id="marketing" class="portfolio-page">
+            <div class="page-header">
+                <h1>Marketing Material</h1>
+                <p>Lookbooks, brochures, and marketing collateral.</p>
+            </div>
+            <div class="content-grid">
+                <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/marketing/MKT1.jpg" alt="Marketing"></div><div class="card-info"><h3>Marketing Material 01</h3><p>Brochure Design</p></div></div>
+            </div>
+        </section>
 
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-      <img id="lightbox-img" src="" alt="Portfolio item">
-      <div id="lightbox-caption" class="lightbox-caption"></div>
-      <div id="gallery-counter" class="gallery-counter"></div>
+        <!-- LOGOS PAGE -->
+        <section id="logos" class="portfolio-page">
+            <div class="page-header">
+                <h1>Logos</h1>
+                <p>Brand identity and monogram design collections.</p>
+            </div>
+            <div class="content-grid">
+                <div class="card" onclick="openLightbox(this)"><div class="card-img"><img src="assets/logos/LOGO1.jpg" alt="Logo"></div><div class="card-info"><h3>Logo Design 01</h3><p>Brand Identity</p></div></div>
+            </div>
+        </section>
+
     </div>
-  </div>
 
-  <script>
-    function switchPage(pageId) {
-      const pages = document.querySelectorAll('.portfolio-page');
-      pages.forEach(page => page.classList.remove('active'));
+    <!-- Image Viewer / Gallery -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <!-- These arrows are ONLY shown for DPS cards that have an external gallery. -->
+        <button id="gallery-prev" class="gallery-arrow gallery-prev" onclick="changeGalleryImage(-1); event.stopPropagation();" aria-label="Previous DPS page">&#10094;</button>
+        <button id="gallery-next" class="gallery-arrow gallery-next" onclick="changeGalleryImage(1); event.stopPropagation();" aria-label="Next DPS page">&#10095;</button>
 
-      const targetPage = document.getElementById(pageId);
-      if (targetPage) {
-        targetPage.classList.add('active');
-        targetPage.scrollTop = 0;
-      }
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+            <img id="lightbox-img" src="" alt="Enlarged Portfolio Item">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            <div id="gallery-counter" class="gallery-counter"></div>
+        </div>
+    </div>
 
-      const navButtons = document.querySelectorAll('.sub-nav button');
-      navButtons.forEach(btn => btn.classList.remove('active'));
+    <script>
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.portfolio-page');
+            pages.forEach(page => page.classList.remove('active'));
 
-      const activeBtn = document.getElementById('btn-' + pageId);
-      if (activeBtn) {
-        activeBtn.classList.add('active');
-      }
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                targetPage.scrollTop = 0;
+            }
 
-      window.scrollTo(0, 0);
-    }
+            const navButtons = document.querySelectorAll('.sub-nav button');
+            navButtons.forEach(btn => btn.classList.remove('active'));
 
-    function switchCoverSub(subId, event) {
-      const container = document.getElementById('covers');
-      if (!container) return;
+            const activeBtn = document.getElementById('btn-' + pageId);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
 
-      const subPages = container.querySelectorAll('.layout-sub-page');
-      subPages.forEach(page => page.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
 
-      const targetSub = document.getElementById(subId);
-      if (targetSub) {
-        targetSub.classList.add('active');
-      }
+        function switchCoverSub(subId, event) {
+            const container = document.getElementById('covers');
+            const subPages = container.querySelectorAll('.layout-sub-page');
+            subPages.forEach(page => page.classList.remove('active'));
 
-      const buttons = container.querySelectorAll('.layout-sub-nav .sub-nav-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+            const targetSub = document.getElementById(subId);
+            if (targetSub) {
+                targetSub.classList.add('active');
+            }
 
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-      }
-    }
+            const buttons = container.querySelectorAll('.layout-sub-nav .sub-nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
 
-    function switchLayoutSub(subId, event) {
-      const container = document.getElementById('layouts');
-      if (!container) return;
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+        }
 
-      const subPages = container.querySelectorAll('.layout-sub-page');
-      subPages.forEach(page => page.classList.remove('active'));
+        function switchLayoutSub(subId, event) {
+            const container = document.getElementById('layouts');
+            const subPages = container.querySelectorAll('.layout-sub-page');
+            subPages.forEach(page => page.classList.remove('active'));
 
-      const targetSub = document.getElementById(subId);
-      if (targetSub) {
-        targetSub.classList.add('active');
-      }
+            const targetSub = document.getElementById(subId);
+            if (targetSub) {
+                targetSub.classList.add('active');
+            }
 
-      const buttons = container.querySelectorAll('.layout-sub-nav .sub-nav-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+            const buttons = container.querySelectorAll('.layout-sub-nav .sub-nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
 
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-      }
-    }
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+        }
 
-    function switchMagazineSub(subId, event) {
-      const container = document.getElementById('magazines');
-      if (!container) return;
+        function switchMagazineSub(subId, event) {
+            const container = document.getElementById('magazines');
+            const subPages = container.querySelectorAll('.layout-sub-page');
+            subPages.forEach(page => page.classList.remove('active'));
 
-      const subPages = document.querySelectorAll('#magazines .layout-sub-page');
-      subPages.forEach(page => page.classList.remove('active'));
+            const targetSub = document.getElementById(subId);
+            if (targetSub) {
+                targetSub.classList.add('active');
+            }
 
-      const targetSub = document.getElementById(subId);
-      if (targetSub) {
-        targetSub.classList.add('active');
-      }
+            const buttons = container.querySelectorAll('.layout-sub-nav .sub-nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
 
-      const buttons = document.querySelectorAll('#magazines .layout-sub-nav .sub-nav-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+        }
 
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-      }
-    }
+        /* ============================================================
+           EXTERNAL DPS PAGE GALLERY
+           ============================================================
 
-    function filterPortfolio() {
-      const input = document.getElementById('portfolioSearch');
-      if (!input) return;
+           Covers and Infographics are NOT changed. Their cards still
+           open one image at a time.
 
-      const query = input.value.trim().toLowerCase();
-      const cards = document.querySelectorAll('.card');
+           For DPS cards in every other section, clicking the card opens
+           a separate gallery containing NEW images that are NOT already
+           displayed on the website.
 
-      cards.forEach(card => {
-        const title = (card.textContent || '').toLowerCase();
-        const shouldShow = title.includes(query);
-        card.style.display = shouldShow ? '' : 'none';
-      });
-    }
+           NEW IMAGE FOLDER STRUCTURE
+           ---------------------------
+           Put the extra DPS pages here:
 
-    function openLightbox(cardElement) {
-      const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      const caption = document.getElementById('lightbox-caption');
+             assets/dps-pages/<gallery-id>/page1.jpg
+             assets/dps-pages/<gallery-id>/page2.jpg
+             assets/dps-pages/<gallery-id>/page3.jpg
 
-      if (!lightbox || !img || !caption) return;
+           Each DPS card below has its own gallery ID. The IDs are listed
+           in DPS_GALLERIES. Add the filenames for the extra pages there.
 
-      const image = cardElement.querySelector('img');
-      if (!image) return;
+           Example:
 
-      img.src = image.src;
-      img.alt = image.alt || 'Portfolio item';
+             "layouts-1": {
+                 title: "My DPS",
+                 images: ["page1.jpg", "page2.jpg", "page3.jpg"]
+             }
 
-      const title = cardElement.querySelector('h3');
-      caption.textContent = title ? title.textContent : '';
+           This will load:
+             assets/dps-pages/layouts-1/page1.jpg
+             assets/dps-pages/layouts-1/page2.jpg
+             assets/dps-pages/layouts-1/page3.jpg
 
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+           IMPORTANT: the thumbnail already on the website is NEVER added
+           automatically to this gallery. Only images listed in images[]
+           are shown.
+        */
 
-    function closeLightbox() {
-      const lightbox = document.getElementById('lightbox');
-      if (!lightbox) return;
+        const DPS_GALLERY_BASE_PATH = "./assets/dps-pages/";
 
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+        const DPS_GALLERIES = {
+            "layouts-1": {
+                title: "",
+                folder: "layouts_1",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg",
+                    "page11.jpg"
+                ]
+            },
+            "layouts-2": {
+                title: "",
+                folder: "layouts_2",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-3": {
+                title: "",
+                folder: "layouts_3",
+                images: [
 
-    function changeGalleryImage(direction) {
-      const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      if (!lightbox || !img) return;
+                ]
+            },
+            "layouts-4": {
+                title: "",
+                folder: "layouts_4",
+                images: [
 
-      const currentSrc = img.src;
-      const cards = Array.from(document.querySelectorAll('.card'));
-      const validCards = cards.filter(card => {
-        const image = card.querySelector('img');
-        return image && image.src && image.src !== currentSrc;
-      });
+                ]
+            },
+            "layouts-5": {
+                title: "",
+                folder: "layouts_5",
+                images: [
 
-      if (!validCards.length) return;
+                ]
+            },
+            "layouts-6": {
+                title: "",
+                folder: "layouts_6",
+                images: [
 
-      const currentIndex = validCards.findIndex(card => {
-        const image = card.querySelector('img');
-        return image && image.src === currentSrc;
-      });
+                ]
+            },
+            "layouts-7": {
+                title: "",
+                folder: "layouts_7",
+                images: [
 
-      let nextIndex = currentIndex;
-      if (currentIndex === -1) {
-        nextIndex = 0;
-      } else {
-        nextIndex = (currentIndex + direction + validCards.length) % validCards.length;
-      }
+                ]
+            },
+            "layouts-8": {
+                title: "",
+                folder: "layouts_8",
+                images: [
 
-      const nextImage = validCards[nextIndex].querySelector('img');
-      if (nextImage) {
-        img.src = nextImage.src;
-        img.alt = nextImage.alt || 'Portfolio item';
-        const title = validCards[nextIndex].querySelector('h3');
-        const caption = document.getElementById('lightbox-caption');
-        if (caption) caption.textContent = title ? title.textContent : '';
-      }
-    }
+                ]
+            },
+            "layouts-9": {
+                title: "",
+                folder: "layouts_9",
+                images: [
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const lightbox = document.getElementById('lightbox');
-      if (lightbox) {
-        lightbox.addEventListener('click', function (event) {
-          if (event.target === lightbox) {
-            closeLightbox();
-          }
+                ]
+            },
+            "layouts-10": {
+                title: "",
+                folder: "layouts_10",
+                images: [
+
+                ]
+            },
+            "layouts-11": {
+                title: "",
+                folder: "layouts_11",
+                images: [
+
+                ]
+            },
+            "layouts-12": {
+                title: "",
+                folder: "layouts_12",
+                images: [
+
+                ]
+            },
+            "layouts-13": {
+                title: "",
+                folder: "layouts_13",
+                images: [
+
+                ]
+            },
+            "layouts-14": {
+                title: "",
+                folder: "layouts_14",
+                images: [
+
+                ]
+            },
+            "layouts-15": {
+                title: "",
+                folder: "layouts_15",
+                images: [
+
+                ]
+            },
+            "layouts-16": {
+                title: "",
+                folder: "layouts_16",
+                images: [
+
+                ]
+            },
+            "layouts-17": {
+                title: "",
+                folder: "layouts_17",
+                images: [
+
+                ]
+            },
+            "layouts-18": {
+                title: "",
+                folder: "layouts_18",
+                images: [
+
+                ]
+            },
+            "layouts-19": {
+                title: "",
+                folder: "layouts_19",
+                images: [
+
+                ]
+            },
+            "layouts-20": {
+                title: "",
+                folder: "layouts_20",
+                images: [
+
+                ]
+            },
+            "layouts-21": {
+                title: "",
+                folder: "layouts_21",
+                images: [
+
+                ]
+            },
+            "layouts-22": {
+                title: "",
+                folder: "layouts_22",
+                images: [
+
+                ]
+            },
+            "layouts-23": {
+                title: "",
+                folder: "layouts_23",
+                images: [
+
+                ]
+            },
+            "layouts-24": {
+                title: "",
+                folder: "layouts_24",
+                images: [
+
+                ]
+            },
+            "layouts-25": {
+                title: "",
+                folder: "layouts_25",
+                images: [
+
+                ]
+            },
+            "layouts-26": {
+                title: "",
+                folder: "layouts_26",
+                images: [
+
+                ]
+            },
+            "layouts-27": {
+                title: "",
+                folder: "layouts_27",
+                images: [
+
+                ]
+            },
+            "layouts-28": {
+                title: "",
+                folder: "layouts_28",
+                images: [
+
+                ]
+            },
+            "layouts-29": {
+                title: "",
+                folder: "layouts_29",
+                images: [
+
+                ]
+            },
+            "layouts-30": {
+                title: "",
+                folder: "layouts_30",
+                images: [
+
+                ]
+            },
+            "layouts-31": {
+                title: "",
+                folder: "layouts_31",
+                images: [
+
+                ]
+            },
+            "layouts-32": {
+                title: "",
+                folder: "layouts_32",
+                images: [
+
+                ]
+            },
+            "layouts-33": {
+                title: "",
+                folder: "layouts_33",
+                images: [
+
+                ]
+            },
+            "layouts-34": {
+                title: "",
+                folder: "layouts_34",
+                images: [
+
+                ]
+            },
+            "layouts-35": {
+                title: "",
+                folder: "layouts_35",
+                images: [
+
+                ]
+            },
+            "layouts-36": {
+                title: "",
+                folder: "layouts_36",
+                images: [
+
+                ]
+            },
+            "layouts-37": {
+                title: "",
+                folder: "layouts_37",
+                images: [
+
+                ]
+            },
+            "layouts-38": {
+                title: "",
+                folder: "layouts_38",
+                images: [
+
+                ]
+            },
+            "layouts-39": {
+                title: "",
+                folder: "layouts_39",
+                images: [
+
+                ]
+            },
+            "layouts-40": {
+                title: "",
+                folder: "layouts_40",
+                images: [
+
+                ]
+            },
+            "layouts-41": {
+                title: "",
+                folder: "layouts_41",
+                images: [
+
+                ]
+            },
+            "layouts-42": {
+                title: "",
+                folder: "layouts_42",
+                images: [
+
+                ]
+            },
+            "layouts-43": {
+                title: "",
+                folder: "layouts_43",
+                images: [
+
+                ]
+            },
+            "layouts-44": {
+                title: "",
+                folder: "layouts_44",
+                images: [
+
+                ]
+            },
+            "layouts-45": {
+                title: "",
+                folder: "layouts_45",
+                images: [
+
+                ]
+            },
+            "magazines-1": {
+                title: "",
+                folder: "magazines_1",
+                images: []
+            },
+            "magazines-2": {
+                title: "",
+                folder: "magazines_2",
+                images: []
+            },
+            "magazines-3": {
+                title: "",
+                folder: "magazines_3",
+                images: []
+            },
+            "magazines-4": {
+                title: "",
+                folder: "magazines_4",
+                images: []
+            },
+            "magazines-5": {
+                title: "",
+                folder: "magazines_5",
+                images: []
+            },
+            "magazines-6": {
+                title: "",
+                folder: "magazines_6",
+                images: []
+            },
+            "magazines-7": {
+                title: "",
+                folder: "magazines_7",
+                images: []
+            },
+            "magazines-8": {
+                title: "",
+                folder: "magazines_8",
+                images: []
+            },
+            "magazines-9": {
+                title: "",
+                folder: "magazines_9",
+                images: []
+            },
+            "magazines-10": {
+                title: "",
+                folder: "magazines_10",
+                images: []
+            },
+            "magazines-11": {
+                title: "",
+                folder: "magazines_11",
+                images: []
+            },
+            "magazines-12": {
+                title: "",
+                folder: "magazines_12",
+                images: []
+            },
+            "magazines-13": {
+                title: "",
+                folder: "magazines_13",
+                images: []
+            },
+            "magazines-14": {
+                title: "",
+                folder: "magazines_14",
+                images: []
+            },
+            "magazines-15": {
+                title: "",
+                folder: "magazines_15",
+                images: []
+            }
+        };
+
+        let galleryImages = [];
+        let galleryIndex = 0;
+        let galleryMode = false;
+        let currentGalleryId = "";
+        let currentGalleryTitle = "";
+
+        function isExternalDPSCard(card) {
+            const page = card ? card.closest('.portfolio-page') : null;
+            if (!page) return false;
+            if (page.id === 'covers' || page.id === 'infographics') return false;
+            return card.classList.contains('dps') && card.hasAttribute('data-dps-gallery');
+        }
+
+        function openLightbox(card) {
+            if (isExternalDPSCard(card)) {
+                openDPSGallery(card);
+            } else {
+                openSingleLightbox(card);
+            }
+        }
+
+        function openSingleLightbox(card) {
+            galleryMode = false;
+            galleryImages = [];
+            galleryIndex = 0;
+            currentGalleryId = "";
+            currentGalleryTitle = "";
+
+            const img = card.querySelector('img');
+            const titleEl = card.querySelector('h3');
+            const descEl = card.querySelector('p');
+            if (!img) return;
+
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            const counter = document.getElementById('gallery-counter');
+
+            lightbox.classList.remove('gallery-mode');
+            lightbox.classList.add('active');
+
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || 'Enlarged Portfolio Item';
+
+            const title = titleEl ? titleEl.innerText.trim() : '';
+            const desc = descEl ? descEl.innerText.trim() : '';
+            caption.innerText = desc ? `${title} - ${desc}` : title;
+            counter.innerText = '';
+        }
+
+        function openDPSGallery(card) {
+            const galleryId = card.getAttribute('data-dps-gallery');
+            const gallery = DPS_GALLERIES[galleryId];
+
+            if (!gallery || !Array.isArray(gallery.images) || gallery.images.length === 0) {
+                alert(
+                    'No extra DPS pages have been added for this item yet.\n\n' +
+                    'Add the page filenames in DPS_GALLERIES for: ' + galleryId +
+                    '\n\nThe images must be placed in: ' +
+                    DPS_GALLERY_BASE_PATH + ((gallery && gallery.folder) || galleryId) + '/'
+                );
+                return;
+            }
+
+            galleryImages = gallery.images.filter(name => typeof name === 'string' && name.trim() !== '');
+            galleryIndex = 0;
+            galleryMode = true;
+            currentGalleryId = galleryId;
+            currentGalleryTitle = gallery.title || (card.querySelector('h3') ? card.querySelector('h3').innerText.trim() : 'DPS');
+
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('gallery-mode');
+            lightbox.classList.add('active');
+
+            showGalleryImage();
+        }
+
+        function showGalleryImage() {
+            if (!galleryImages.length) return;
+
+            const filename = galleryImages[galleryIndex];
+            const galleryFolder = DPS_GALLERIES[currentGalleryId].folder || currentGalleryId;
+            const imagePath = new URL(DPS_GALLERY_BASE_PATH + galleryFolder + '/' + filename, document.baseURI).href;
+
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            const counter = document.getElementById('gallery-counter');
+
+            img.src = imagePath;
+            img.alt = currentGalleryTitle + ' - page ' + (galleryIndex + 1);
+            caption.innerText = currentGalleryTitle;
+            counter.innerText = 'Page ' + (galleryIndex + 1) + ' / ' + galleryImages.length;
+
+            img.onerror = function() {
+                console.error('DPS gallery image not found:', imagePath);
+                caption.innerText = 'Image not found: ' + filename;
+            };
+
+            updateGalleryButtons();
+        }
+
+        function updateGalleryButtons() {
+            const prev = document.getElementById('gallery-prev');
+            const next = document.getElementById('gallery-next');
+            const show = galleryMode && galleryImages.length > 1;
+            prev.style.display = show ? 'flex' : 'none';
+            next.style.display = show ? 'flex' : 'none';
+        }
+
+        function changeGalleryImage(direction) {
+            if (!galleryMode || galleryImages.length <= 1) return;
+
+            galleryIndex += direction;
+            if (galleryIndex < 0) galleryIndex = galleryImages.length - 1;
+            if (galleryIndex >= galleryImages.length) galleryIndex = 0;
+
+            showGalleryImage();
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            lightbox.classList.remove('gallery-mode');
+
+            galleryImages = [];
+            galleryIndex = 0;
+            galleryMode = false;
+            currentGalleryId = '';
+            currentGalleryTitle = '';
+
+            document.getElementById('lightbox-img').src = '';
+            document.getElementById('lightbox-img').onerror = null;
+            document.getElementById('lightbox-caption').innerText = '';
+            document.getElementById('gallery-counter').innerText = '';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+
+            if (event.key === 'Escape') {
+                closeLightbox();
+                return;
+            }
+
+            if (galleryMode) {
+                if (event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    changeGalleryImage(-1);
+                } else if (event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    changeGalleryImage(1);
+                }
+            }
         });
-      }
-    });
-  </script>
 
+        function filterPortfolio() {
+            const input = document.getElementById('portfolioSearch').value.toLowerCase();
+            const activePage = document.querySelector('.portfolio-page.active');
+            if (!activePage) return;
+
+            const cards = activePage.querySelectorAll('.card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
