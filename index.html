@@ -980,10 +980,1064 @@
           if (event.target === lightbox) {
             closeLightbox();
           }
-        });
-      }
-    });
-  </script>
+        }
 
+        /* ============================================================
+           EXTERNAL DPS PAGE GALLERY
+           ============================================================
+
+           Covers and Infographics are NOT changed. Their cards still
+           open one image at a time.
+
+           For DPS cards in every other section, clicking the card opens
+           a separate gallery containing NEW images that are NOT already
+           displayed on the website.
+
+           NEW IMAGE FOLDER STRUCTURE
+           ---------------------------
+           Put the extra DPS pages here:
+
+             assets/dps-pages/<gallery-id>/page1.jpg
+             assets/dps-pages/<gallery-id>/page2.jpg
+             assets/dps-pages/<gallery-id>/page3.jpg
+
+           Each DPS card below has its own gallery ID. The IDs are listed
+           in DPS_GALLERIES. Add the filenames for the extra pages there.
+
+           Example:
+
+             "layouts-1": {
+                 title: "My DPS",
+                 images: ["page1.jpg", "page2.jpg", "page3.jpg"]
+             }
+
+           This will load:
+             assets/dps-pages/layouts-1/page1.jpg
+             assets/dps-pages/layouts-1/page2.jpg
+             assets/dps-pages/layouts-1/page3.jpg
+
+           IMPORTANT: the thumbnail already on the website is NEVER added
+           automatically to this gallery. Only images listed in images[]
+           are shown.
+        */
+
+        const DPS_GALLERY_BASE_PATH = "./assets/dps-pages/";
+
+        /* GitHub Pages: physical folders use underscores (layouts_1), while
+           gallery IDs use hyphens (layouts-1). GitHub filenames are case-sensitive. */
+        const DPS_GALLERIES = {
+             "layouts-1": {
+                title: "News",
+                folder: "layouts_1",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg",
+                    "page11.jpg"
+                ]
+            },
+            "layouts-2": {
+                title: "News",
+                folder: "layouts_2",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-3": {
+                title: "News",
+                folder: "layouts_3",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-4": {
+                title: "News",
+                folder: "layouts_4",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-5": {
+                title: "News",
+                folder: "layouts_5",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-6": {
+                title: "News",
+                folder: "layouts_6",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-7": {
+                title: "News",
+                folder: "layouts_7",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg"
+                ]
+            },
+            "layouts-8": {
+                title: "News",
+                folder: "layouts_8",
+                images: [
+                     "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-9": {
+                title: "Celebs",
+                folder: "layouts_9",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+        
+                ]
+            },
+            "layouts-10": {
+                title: "Celebs",
+                folder: "layouts_10",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-11": {
+                title: "Celebs",
+                folder: "layouts_11",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                    
+                ]
+            },
+            "layouts-12": {
+                title: "Celebs",
+                folder: "layouts_12",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-13": {
+                title: "Celebs",
+                folder: "layouts_13",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-14": {
+                title: "Celebs",
+                folder: "layouts_14",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-15": {
+                title: "Celebs",
+                folder: "layouts_15",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg"
+                ]
+            },
+            "layouts-16": {
+                title: "Celebs",
+                folder: "layouts_16",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-17": {
+                title: "Celebs",
+                folder: "layouts_17",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-18": {
+                title: "Celebs",
+                folder: "layouts_18",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg"
+                ]
+            },
+            "layouts-19": {
+                title: "Celebs",
+                folder: "layouts_19",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg"
+                ]
+            },
+            "layouts-20": {
+                title: "Celebs",
+                folder: "layouts_20",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg",
+                    "page11.jpg"
+                ]
+            },
+            "layouts-21": {
+                title: "Sport",
+                folder: "layouts_21",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg"
+                ]
+            },
+            "layouts-22": {
+                title: "Sport",
+                folder: "layouts_22",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-23": {
+                title: "Sport",
+                folder: "layouts_23",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg"
+                ]
+            },
+            "layouts-24": {
+                title: "Sport",
+                folder: "layouts_24",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-25": {
+                title: "Sport",
+                folder: "layouts_25",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-26": {
+                title: "Sport",
+                folder: "layouts_26",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-27": {
+                title: "Sport",
+                folder: "layouts_27",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-28": {
+                title: "Sport",
+                folder: "layouts_28",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-29": {
+                title: "Sport",
+                folder: "layouts_29",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg"
+                ]
+            },
+            "layouts-30": {
+                title: "Sport",
+                folder: "layouts_30",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-31": {
+                title: "Sport",
+                folder: "layouts_31",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg"
+                ]
+            },
+            "layouts-32": {
+                title: "Sport",
+                folder: "layouts_32",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg"
+                ]
+            },
+            "layouts-33": {
+                title: "Sport",
+                folder: "layouts_33",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-34": {
+                title: "",
+                folder: "layouts_34",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-35": {
+                title: "",
+                folder: "layouts_35",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg"
+                    
+                ]
+            },
+            "layouts-36": {
+                title: "",
+                folder: "layouts_36",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg"
+                ]
+            },
+            "layouts-37": {
+                title: "",
+                folder: "layouts_37",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "layouts-38": {
+                title: "",
+                folder: "layouts_38",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-39": {
+                title: "",
+                folder: "layouts_39",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-40": {
+                title: "",
+                folder: "layouts_40",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg"
+                ]
+            },
+            "layouts-41": {
+                title: "",
+                folder: "layouts_41",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-42": {
+                title: "",
+                folder: "layouts_42",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg"
+                ]
+            },
+            "layouts-43": {
+                title: "",
+                folder: "layouts_43",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg"
+                ]
+            },
+            "layouts-44": {
+                title: "",
+                folder: "layouts_44",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg"
+                ]
+            },
+            "layouts-45": {
+                title: "",
+                folder: "layouts_45",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-46": {
+                title: "",
+                folder: "layouts_46",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg",
+                    "page9.jpg",
+                    "page10.jpg",
+                    "page11.jpg",
+                    "page12.jpg",
+                    "page13.jpg",
+                    "page14.jpg",
+                    "page15.jpg"
+                ]
+            },
+            "layouts-47": {
+                title: "",
+                folder: "layouts_47",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg"
+                ]
+            },
+            "layouts-48": {
+                title: "",
+                folder: "layouts_48",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg",
+                    "page5.jpg",
+                    "page6.jpg",
+                    "page7.jpg",
+                    "page8.jpg"
+                ]
+            },
+            "layouts-49": {
+                title: "",
+                folder: "layouts_49",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg",
+                    "page4.jpg"
+                ]
+            },
+            "magazines-1": {
+                title: "",
+                folder: "magazines_1",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-2": {
+                title: "",
+                folder: "magazines_2",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-3": {
+                title: "",
+                folder: "magazines_3",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-4": {
+                title: "",
+                folder: "magazines_4",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-5": {
+                title: "",
+                folder: "magazines_5",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-6": {
+                title: "",
+                folder: "magazines_6",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-7": {
+                title: "",
+                folder: "magazines_7",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-8": {
+                title: "",
+                folder: "magazines_8",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-9": {
+                title: "",
+                folder: "magazines_9",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-10": {
+                title: "",
+                folder: "magazines_10",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-11": {
+                title: "",
+                folder: "magazines_11",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-12": {
+                title: "",
+                folder: "magazines_12",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-13": {
+                title: "",
+                folder: "magazines_13",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-14": {
+                title: "",
+                folder: "magazines_14",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            },
+            "magazines-15": {
+                title: "",
+                folder: "magazines_15",
+                images: [
+                    "page1.jpg",
+                    "page2.jpg",
+                    "page3.jpg"
+                ]
+            }
+        };
+
+        let galleryImages = [];
+        let galleryIndex = 0;
+        let galleryMode = false;
+        let currentGalleryId = "";
+        let currentGalleryTitle = "";
+
+        function isExternalDPSCard(card) {
+            const page = card ? card.closest('.portfolio-page') : null;
+            if (!page) return false;
+            if (page.id === 'covers' || page.id === 'infographics') return false;
+            return card.classList.contains('dps') && card.hasAttribute('data-dps-gallery');
+        }
+
+        function openLightbox(card) {
+            if (isExternalDPSCard(card)) {
+                openDPSGallery(card);
+            } else {
+                openSingleLightbox(card);
+            }
+        }
+
+        function openSingleLightbox(card) {
+            galleryMode = false;
+            galleryImages = [];
+            galleryIndex = 0;
+            currentGalleryId = "";
+            currentGalleryTitle = "";
+
+            const img = card.querySelector('img');
+            const titleEl = card.querySelector('h3');
+            const descEl = card.querySelector('p');
+            if (!img) return;
+
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            const counter = document.getElementById('gallery-counter');
+
+            lightbox.classList.remove('gallery-mode');
+            lightbox.classList.add('active');
+
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || 'Enlarged Portfolio Item';
+
+            const title = titleEl ? titleEl.innerText.trim() : '';
+            const desc = descEl ? descEl.innerText.trim() : '';
+            caption.innerText = desc ? `${title} - ${desc}` : title;
+            counter.innerText = '';
+        }
+
+        function openDPSGallery(card) {
+            const galleryId = card.getAttribute('data-dps-gallery');
+            const gallery = DPS_GALLERIES[galleryId];
+
+            if (!gallery || !Array.isArray(gallery.images) || gallery.images.length === 0) {
+                alert(
+                    'No extra DPS pages have been added for this item yet.\n\n' +
+                    'Add the page filenames in DPS_GALLERIES for: ' + galleryId +
+                    '\n\nThe images must be placed in: ' +
+                    DPS_GALLERY_BASE_PATH + ((gallery && gallery.folder) || galleryId) + '/'
+                );
+                return;
+            }
+
+            galleryImages = gallery.images.filter(name => typeof name === 'string' && name.trim() !== '');
+            galleryIndex = 0;
+            galleryMode = true;
+            currentGalleryId = galleryId;
+            currentGalleryTitle = gallery.title || (card.querySelector('h3') ? card.querySelector('h3').innerText.trim() : 'DPS');
+
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('gallery-mode');
+            lightbox.classList.add('active');
+
+            showGalleryImage();
+        }
+
+        function showGalleryImage() {
+            if (!galleryImages.length) return;
+
+            const filename = galleryImages[galleryIndex];
+            const gallery = DPS_GALLERIES[currentGalleryId];
+            const galleryFolder = gallery.folder || currentGalleryId.replace(/-/g, '_');
+            const imagePath = DPS_GALLERY_BASE_PATH + galleryFolder + '/' + filename;
+
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            const counter = document.getElementById('gallery-counter');
+
+            img.src = imagePath;
+            img.alt = currentGalleryTitle + ' - page ' + (galleryIndex + 1);
+            caption.innerText = currentGalleryTitle;
+            counter.innerText = 'Page ' + (galleryIndex + 1) + ' / ' + galleryImages.length;
+
+            img.onerror = function() {
+                console.error('DPS gallery image not found:', imagePath);
+                caption.innerText = 'Image not found: ' + filename;
+            };
+
+            updateGalleryButtons();
+        }
+
+        function updateGalleryButtons() {
+            const prev = document.getElementById('gallery-prev');
+            const next = document.getElementById('gallery-next');
+            const show = galleryMode && galleryImages.length > 1;
+            prev.style.display = show ? 'flex' : 'none';
+            next.style.display = show ? 'flex' : 'none';
+        }
+
+        function changeGalleryImage(direction) {
+            if (!galleryMode || galleryImages.length <= 1) return;
+
+            galleryIndex += direction;
+            if (galleryIndex < 0) galleryIndex = galleryImages.length - 1;
+            if (galleryIndex >= galleryImages.length) galleryIndex = 0;
+
+            showGalleryImage();
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            lightbox.classList.remove('gallery-mode');
+
+            galleryImages = [];
+            galleryIndex = 0;
+            galleryMode = false;
+            currentGalleryId = '';
+            currentGalleryTitle = '';
+
+            document.getElementById('lightbox-img').src = '';
+            document.getElementById('lightbox-img').onerror = null;
+            document.getElementById('lightbox-caption').innerText = '';
+            document.getElementById('gallery-counter').innerText = '';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+
+            if (event.key === 'Escape') {
+                closeLightbox();
+                return;
+            }
+
+            if (galleryMode) {
+                if (event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    changeGalleryImage(-1);
+                } else if (event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    changeGalleryImage(1);
+                }
+            }
+        });
+
+        function filterPortfolio() {
+            const input = document.getElementById('portfolioSearch').value.toLowerCase();
+            const activePage = document.querySelector('.portfolio-page.active');
+            if (!activePage) return;
+
+            const cards = activePage.querySelectorAll('.card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
+
