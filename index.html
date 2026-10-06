@@ -807,13 +807,13 @@
         <button id="gallery-prev" class="gallery-arrow gallery-prev" onclick="changeGalleryImage(-1); event.stopPropagation();" aria-label="Previous DPS page">&#10094;</button>
         <button id="gallery-next" class="gallery-arrow gallery-next" onclick="changeGalleryImage(1); event.stopPropagation();" aria-label="Next DPS page">&#10095;</button>
 
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-            <img id="lightbox-img" src="" alt="Enlarged Portfolio Item">
-            <div id="lightbox-caption" class="lightbox-caption"></div>
-            <div id="gallery-counter" class="gallery-counter"></div>
-        </div>
+       <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+      <img id="lightbox-img" src="" alt="Portfolio item">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <div id="gallery-counter" class="gallery-counter"></div>
     </div>
+  </div>
 
   <script>
     function switchPage(pageId) {
